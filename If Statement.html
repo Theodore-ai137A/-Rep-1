@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Futuristic Days of the Week</title>
+    <style>
+        body {
+            background: black;
+            color: cyan;
+            font-family: 'Orbitron', sans-serif;
+            text-align: center;
+            padding-top: 100px;
+        }
+        h1 {
+            font-size: 3rem;
+            text-shadow: 0 0 20px cyan;
+            animation: glow 1.5s infinite alternate;
+        }
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px cyan;
+            }
+            to {
+                text-shadow: 0 0 30px cyan, 0 0 50px blue;
+            }
+        }
+        .neon-box {
+            border: 2px solid cyan;
+            padding: 20px;
+            display: inline-block;
+            border-radius: 10px;
+            box-shadow: 0 0 20px cyan;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="message" class="neon-box">Awaiting Input...</h1>
+    <script>
+        let dayOfWeek = prompt("Enter a day of the week").toLowerCase().trim();
+        let result;
+        
+        switch(dayOfWeek) {
+            case "monday": case "mon":
+                result = "🚀 Welcome to Cyber Monday!";
+                break;
+            case "tuesday": case "tue":
+                result = "🤖 It's Tech Tuesday!";
+                break;
+            case "wednesday": case "wed":
+                result = "🔮 Midweek Magic Wednesday!";
+                break;
+            case "thursday": case "thu":
+                result = "🛸 Thrilling Thursday!";
+                break;
+            case "friday": case "fri":
+                result = "🎉 Futuristic Friday!";
+                break;
+            case "saturday": case "sat":
+                result = "🌌 Stellar Saturday!";
+                break;
+            case "sunday": case "sun":
+                result = "☀️ Solar Sunday!";
+                break;
+            default:
+                result = "⚠️ System Error: Invalid Day Entered!";
+        }
+        
+        document.getElementById('message').innerHTML = result;
+    </script>
+</body>
+</html>

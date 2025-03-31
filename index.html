@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theodore A</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+        /* RESET */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* BACKGROUND - Futuristic Animated */
+        body {
+            background: linear-gradient(135deg, #010101, #050505);
+            font-family: 'Orbitron', sans-serif;
+            color: #fff;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        /* Floating Particles */
+        .particles {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background: cyan;
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: move 5s linear infinite;
+        }
+
+        @keyframes move {
+            0% {
+                transform: translateY(0) translateX(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(30px);
+                opacity: 0;
+            }
+        }
+
+        /* Glitching Neon Title */
+        h1 {
+            font-size: 3.5em;
+            text-transform: uppercase;
+            text-align: center;
+            text-shadow: 0px 0px 15px cyan;
+            animation: glitch 1.5s infinite alternate;
+        }
+
+        @keyframes glitch {
+            0% { text-shadow: 0px 0px 10px cyan; }
+            100% { text-shadow: 0px 0px 20px cyan, 5px 5px 5px magenta; }
+        }
+
+        /* HOLOGRAPHIC BUTTONS */
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .button {
+            position: relative;
+            padding: 15px 25px;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: cyan;
+            background: rgba(0, 255, 255, 0.1);
+            border: 2px solid rgba(0, 255, 255, 0.5);
+            border-radius: 15px;
+            text-decoration: none;
+            transition: 0.4s ease-in-out;
+            backdrop-filter: blur(10px);
+            box-shadow: 0px 0px 15px rgba(0, 255, 255, 0.5);
+            overflow: hidden;
+        }
+
+        .button:hover {
+            background: cyan;
+            color: #050505;
+            box-shadow: 0px 0px 40px cyan;
+            transform: scale(1.05);
+        }
+
+        /* Interactive Glowing Border Effect */
+        .button::before {
+            content: '';
+            position: absolute;
+            top: -100%;
+            left: -100%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(60deg, transparent, cyan, transparent);
+            transform: rotate(0deg);
+            transition: 0.5s ease-in-out;
+            opacity: 0.3;
+        }
+
+        .button:hover::before {
+            transform: rotate(180deg);
+        }
+
+        /* Interactive 3D Parallax Effect */
+        .container {
+            perspective: 1000px;
+            transform-style: preserve-3d;
+        }
+
+        .button-container:hover .button {
+            transform: rotateY(10deg) translateZ(20px);
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Background -->
+    <div class="particles"></div>
+
+    <!-- Futuristic Glitching Title -->
+    <h1>The Ultimate Project Hub</h1>
+
+    <!-- 3D Parallax Floating Buttons -->
+    <div class="container">
+        <div class="button-container">
+            <a href="Tip Calculator.html" class="button">Tip Calculator</a>
+            <a href="password generator.html" class="button">Password Generator</a>
+            <a href="To-do list.html" class="button">To-Do List</a>
+            <a href="Color picker.html" class="button">Color Picker</a>
+            <a href="Unit Converter.html" class="button">Unit Converter</a>
+        </div>
+    </div>
+
+    <!-- Particle Animation Script -->
+    <script>
+        function createParticles(num) {
+            for (let i = 0; i < num; i++) {
+                let particle = document.createElement('div');
+                particle.classList.add('particle');
+                document.querySelector('.particles').appendChild(particle);
+                
+                let x = Math.random() * window.innerWidth;
+                let y = Math.random() * window.innerHeight;
+                let size = Math.random() * 6;
+
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.top = `${y}px`;
+                particle.style.left = `${x}px`;
+                particle.style.animationDuration = `${Math.random() * 5 + 3}s`;
+            }
+        }
+
+        createParticles(50);
+    </script>
+
+</body>
+</html>
